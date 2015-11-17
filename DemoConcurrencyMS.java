@@ -22,8 +22,8 @@ public class DemoConcurrencyMS {
 		}		
 		
 		Thread prod = new Thread(new ProducerMS(buffer, input));
-		Thread con1 = new Thread(new ConsumerMS(buffer, true));
-		Thread con2 = new Thread(new ConsumerMS(buffer, false));
+		Thread con1 = new Thread(new ConsumerMS(buffer, System.out));
+		Thread con2 = new Thread(new ConsumerMS(buffer, System.err));
 		
 		prod.start();
 		con1.start();
