@@ -13,8 +13,9 @@ public class DemoConcurrencyMS {
 
 		BufferMS buffer = new BufferMS(10);
 		BufferedReader input = null;
+		String inputfilename = "Input.txt";
 		try {
-			FileInputStream fstream = new FileInputStream("Input.txt");
+			FileInputStream fstream = new FileInputStream(inputfilename);
 			input = new BufferedReader(new InputStreamReader(fstream));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
