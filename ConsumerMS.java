@@ -1,22 +1,19 @@
 
 public class ConsumerMS<T extends Comparable<T>> implements Runnable {
 	private BufferMS buffer;
-	private boolean errStream;
+	private PrintStream ps;
 	private T item;
 
-	public ConsumerMS(BufferMS buffer, boolean errStream) {
+	public ConsumerMS(BufferMS buffer, PrintStream ps) {
 		this.buffer = buffer;
-		this.errStream = errStream;
+		this.ps = ps;
 	}
 
 	public void run() {
 		try {
 			do {
 				item = (T) buffer.take();
-				if (errStream)
-					System.err.println(item);
-				else
-					System.out.println(item);
+				ps.println(item);
 			} while (!item.equals("DONE"));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
