@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 
 public class ConsumerMS<T extends Comparable<T>> implements Runnable {
 	private BufferMS buffer;

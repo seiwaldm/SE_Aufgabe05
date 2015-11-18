@@ -4,9 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
-import javaDemo.Consumer;
-import javaDemo.Producer;
-
 public class DemoConcurrencyMS {
 
 	public static void main(String[] args){
