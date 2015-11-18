@@ -21,7 +21,7 @@ public class BufferMS<T extends Comparable<T>> {
 		notifyAll();
 	}
 
-	protected synchronized Object take() throws InterruptedException {
+	protected synchronized T take() throws InterruptedException {
 		while (items[consumerCounter] == null) {
 				wait();
 			} 

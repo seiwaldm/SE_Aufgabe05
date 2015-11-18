@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ProducerMS<T> implements Runnable {
+public class ProducerMS implements Runnable {
 	private BufferMS buffer;
 	private BufferedReader file;
 
@@ -19,6 +19,7 @@ public class ProducerMS<T> implements Runnable {
 				buffer.put(item);
 				item = file.readLine();
 			}
+			buffer.put("DONE");
 			buffer.put("DONE");
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
