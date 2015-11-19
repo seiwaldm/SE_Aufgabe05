@@ -1,12 +1,24 @@
-
-public class BufferMS<T extends Comparable<T>> {
+/**
+ * PS Software Engineering WS2015 <br>
+ * <br>
+ * 
+ * Buffer Class to save instances of an object for further processing by a
+ * Consumer
+ * 
+ * @author Kevin Schoergnhofer, Markus Seiwald
+ *
+ */
+public class Buffer<T extends Comparable<T>> {
 
 	private T[] items;
 	private int producerCounter = 0;
 	private int consumerCounter = 0;
-	//boolean empty = true;
 
-	public BufferMS(int size) {
+	/**
+	 * default constructor
+	 * @param size sets the maximum number of items the Buffer can save at once
+	 */
+	public Buffer(int size) {
 		this.items = (T[]) new Comparable[size];
 	}
 
@@ -23,8 +35,8 @@ public class BufferMS<T extends Comparable<T>> {
 
 	protected synchronized T take() throws InterruptedException {
 		while (items[consumerCounter] == null) {
-				wait();
-			} 
+			wait();
+		}
 		T item = items[consumerCounter];
 		items[consumerCounter] = null;
 		consumerCounter++;
